@@ -1,0 +1,6 @@
+{
+  "name": "Mosh Hair and Beauty Salon",
+  "description": "Luxurious hair artistry and beauty salon in Sri Lanka. Tailored services, transformational styles, expert hair artists, and elegant pampering.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
