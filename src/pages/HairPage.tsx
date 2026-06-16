@@ -23,7 +23,7 @@ export default function HairPage({ setCurrentPage, setPreselectedServiceId }: Ha
       {/* 1. Header Section */}
       <div className="text-left mb-16 max-w-3xl">
         <span className="text-[10px] font-extrabold uppercase text-salon-accent tracking-widest font-sans bg-peach-light/50 px-3.5 py-1.5 rounded-full inline-flex">
-          Boutique Hair Clinic • mosh.lk/Hair
+          Boutique Hair Clinic
         </span>
         <h1 className="font-serif text-4xl md:text-5.5xl font-normal text-charcoal-deep leading-tight mt-4">
           Catering to your hair’s <br />
@@ -37,11 +37,11 @@ export default function HairPage({ setCurrentPage, setPreselectedServiceId }: Ha
       {/* 2. Highlight Callouts mapped to the exact sitemap nodes */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-20">
         {[
-          { title: 'Keratin Care', path: 'mosh.lk/keratin', desc: 'Anti-frizz humidity sealing' },
-          { title: 'Colors & Glow', path: 'mosh.lk/Haircolors', desc: 'Dimensional hand-paint' },
-          { title: 'Nanoplastia', path: 'mosh.lk/nanoplastia', desc: 'Cellular alignment therapy' },
-          { title: 'Hair Botox', path: 'mosh.lk/Botox', desc: 'Deep collagen plumping' },
-          { title: 'Scalp & Care', path: 'mosh.lk/haircare', desc: 'Ultrasonic steam detox' }
+          { title: 'Keratin Care', type: 'Hair Therapy', desc: 'Anti-frizz humidity sealing' },
+          { title: 'Colors & Glow', type: 'Hair Therapy', desc: 'Dimensional hand-paint' },
+          { title: 'Nanoplastia', type: 'Hair Therapy', desc: 'Cellular alignment therapy' },
+          { title: 'Hair Botox', type: 'Hair Therapy', desc: 'Deep collagen plumping' },
+          { title: 'Scalp & Care', type: 'Hair Therapy', desc: 'Ultrasonic steam detox' }
         ].map((node, i) => (
           <div 
             key={i} 
@@ -53,7 +53,7 @@ export default function HairPage({ setCurrentPage, setPreselectedServiceId }: Ha
               <p className="text-[11px] text-charcoal-light mt-1 pb-4">{node.desc}</p>
             </div>
             <div className="border-t border-peach-light/60 pt-3 flex items-center justify-between text-[9px] font-mono text-charcoal-light group-hover:text-salon-accent transition-colors">
-              <span>{node.path}</span>
+              <span>{node.type}</span>
               <CornerDownRight className="w-3 h-3 translate-x-0 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>

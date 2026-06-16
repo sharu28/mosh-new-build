@@ -32,11 +32,11 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
   ];
 
   const servicesDropdownItems = [
-    { id: 'hair' as Page, label: 'Hair Care', path: 'mosh.lk/Hair', desc: 'Keratin, colors & nanoplastia' },
-    { id: 'skin' as Page, label: 'Skin Clinic', path: 'mosh.lk/skin', desc: 'Korea glass skin & micro-needling' },
-    { id: 'slimming' as Page, label: 'Slimming Care', path: 'mosh.lk/slimming', desc: 'Fat freezing & EMS contouring' },
-    { id: 'weddings' as Page, label: 'Weddings & Bridal', path: 'mosh.lk/weddings', desc: 'Brides & Grooms by Mosh' },
-    { id: 'services' as Page, label: 'Search All Services', path: 'mosh.lk/services', desc: 'Complete interactive catalog & quiz' }
+    { id: 'hair' as Page, label: 'Hair Care', path: 'Premium Hair Care', desc: 'Keratin, colors & nanoplastia' },
+    { id: 'skin' as Page, label: 'Skin Clinic', path: 'Dermal Aesthetics', desc: 'Korea glass skin & micro-needling' },
+    { id: 'slimming' as Page, label: 'Slimming Care', path: 'Body Contouring', desc: 'Fat freezing & EMS contouring' },
+    { id: 'weddings' as Page, label: 'Weddings & Bridal', path: 'Modern Nuptials', desc: 'Brides & Grooms by Mosh' },
+    { id: 'services' as Page, label: 'Search All Services', path: 'Interactive Menu', desc: 'Complete interactive catalog & quiz' }
   ];
 
   const handleNavClick = (page: Page) => {
@@ -110,7 +110,7 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
               >
                 <div className="px-3 py-1 border-b border-peach-light pb-2 mb-2">
                   <p className="text-[8px] font-mono font-extrabold text-salon-accent tracking-widest uppercase">
-                    Colombo Elite Pillars
+                    Our Core Services
                   </p>
                 </div>
                 <div className="space-y-0.5">
@@ -126,7 +126,6 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
                     >
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-bold text-charcoal-deep">{subItem.label}</span>
-                        <span className="text-[8px] font-mono text-salon-accent font-bold">{subItem.path}</span>
                       </div>
                       <span className="text-[10px] text-charcoal-light leading-none">{subItem.desc}</span>
                     </button>
@@ -240,7 +239,6 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
                 }`}
               >
                 <span className="font-bold">{subItem.label}</span>
-                <span className="text-[7.5px] font-mono opacity-80">{subItem.path}</span>
               </button>
             ))}
           </div>

@@ -17,10 +17,10 @@ export default function ServicesPage({ setCurrentPage, setPreselectedServiceId }
 
   const categories = [
     { id: 'all', label: 'All Services' },
-    { id: 'hair', label: 'HAIR (mosh.lk/Hair)' },
-    { id: 'skin', label: 'SKIN (mosh.lk/skin)' },
-    { id: 'slimming', label: 'Slimming (mosh.lk/slimming)' },
-    { id: 'bridal', label: 'Weddings (mosh.lk/weddings)' }
+    { id: 'hair', label: 'Hair Care' },
+    { id: 'skin', label: 'Skin Clinic' },
+    { id: 'slimming', label: 'Slimming Care' },
+    { id: 'bridal', label: 'Weddings & Bridal' }
   ];
 
   // Filtering Logic

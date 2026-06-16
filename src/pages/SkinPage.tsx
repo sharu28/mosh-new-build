@@ -23,7 +23,7 @@ export default function SkinPage({ setCurrentPage, setPreselectedServiceId }: Sk
       {/* 1. Header Section */}
       <div className="text-left mb-16 max-w-3xl">
         <span className="text-[10px] font-extrabold uppercase text-salon-accent tracking-widest font-sans bg-peach-light/50 px-3.5 py-1.5 rounded-full inline-flex items-center gap-1.5">
-          <ShieldCheck className="w-3.5 h-3.5 text-salon-accent" /> Premium Skin Clinic • mosh.lk/skin
+          <ShieldCheck className="w-3.5 h-3.5 text-salon-accent" /> Premium Skin Clinic
         </span>
         <h1 className="font-serif text-4xl md:text-5.5xl font-normal text-charcoal-deep leading-tight mt-4">
           Dermal therapies that <br />
@@ -37,12 +37,12 @@ export default function SkinPage({ setCurrentPage, setPreselectedServiceId }: Sk
       {/* 2. Highlight Callouts mapped to the exact sitemap nodes */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 mb-20">
         {[
-          { title: 'Acne Erase', path: 'mosh.lk/acnetreatment', desc: 'Salicylic extraction & LED' },
-          { title: 'White Science', path: 'mosh.lk/Whitescience', desc: 'Sunspot blemish brighten' },
-          { title: 'Korean Glass', path: 'mosh.lk/koreanglassskin', desc: 'Luminescent translucent glow' },
-          { title: 'HydraFacial', path: 'mosh.lk/hydrafacial', desc: 'Pore cleaning serum boost' },
-          { title: 'Anti Aging', path: 'mosh.lk/antiaging', desc: 'Microcurrent dermal lifting' },
-          { title: 'Micro Needling', path: 'mosh.lk/microneedling', desc: 'Sterile collagen induction' }
+          { title: 'Acne Erase', type: 'Clinical Therapy', desc: 'Salicylic extraction & LED' },
+          { title: 'White Science', type: 'Clinical Therapy', desc: 'Sunspot blemish brighten' },
+          { title: 'Korean Glass', type: 'Clinical Therapy', desc: 'Luminescent translucent glow' },
+          { title: 'HydraFacial', type: 'Clinical Therapy', desc: 'Pore cleaning serum boost' },
+          { title: 'Anti Aging', type: 'Clinical Therapy', desc: 'Microcurrent dermal lifting' },
+          { title: 'Micro Needling', type: 'Clinical Therapy', desc: 'Sterile collagen induction' }
         ].map((node, i) => (
           <div 
             key={i} 
@@ -54,7 +54,7 @@ export default function SkinPage({ setCurrentPage, setPreselectedServiceId }: Sk
               <p className="text-[10px] text-charcoal-light mt-1 pb-4 leading-relaxed">{node.desc}</p>
             </div>
             <div className="border-t border-peach-light/60 pt-3 flex items-center justify-between text-[9px] font-mono text-charcoal-light group-hover:text-salon-accent transition-colors">
-              <span>{node.path}</span>
+              <span>{node.type}</span>
               <CornerDownRight className="w-3 h-3 translate-x-0 group-hover:translate-x-1 transition-transform font-bold" />
             </div>
           </div>

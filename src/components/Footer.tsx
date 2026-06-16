@@ -23,7 +23,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               <Scissors className="w-5 h-5 text-salon-accent" />
             </div>
             <span className="font-serif text-2xl font-bold tracking-tight text-white">
-              mosh<span className="text-salon-accent font-sans text-lg font-semibold">.lk</span>
+              Mosh <span className="text-salon-accent font-sans text-lg font-semibold">Elite</span>
             </span>
           </div>
           <p className="text-xs text-cream-soft/70 leading-relaxed max-w-sm font-sans">
@@ -53,22 +53,22 @@ export default function Footer({ setCurrentPage }: FooterProps) {
             </li>
             <li>
               <button onClick={() => handleNavClick('hair')} className="hover:text-salon-accent transition-colors">
-                Hair Care (mosh.lk/Hair)
+                Hair Care
               </button>
             </li>
             <li>
               <button onClick={() => handleNavClick('skin')} className="hover:text-salon-accent transition-colors">
-                Skin Clinic (mosh.lk/skin)
+                Skin Clinic
               </button>
             </li>
             <li>
               <button onClick={() => handleNavClick('slimming')} className="hover:text-salon-accent transition-colors">
-                Slimming (mosh.lk/slimming)
+                Slimming Care
               </button>
             </li>
             <li>
               <button onClick={() => handleNavClick('weddings')} className="hover:text-salon-accent transition-colors">
-                Weddings (mosh.lk/weddings)
+                Weddings & Bridal
               </button>
             </li>
             <li>
@@ -142,7 +142,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
 
       {/* Deep Footer details & credits */}
       <div className="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-cream-soft/40 font-sans">
-        <p>© 2026 mosh.lk. All rights reserved. Crafted with hair artistry passion.</p>
+        <p>© 2026 Mosh. All rights reserved. Crafted with hair artistry passion.</p>
         <p className="flex items-center gap-1">
           Made in Sri Lanka with <Heart className="w-3 h-3 text-salon-accent fill-salon-accent" />
         </p>

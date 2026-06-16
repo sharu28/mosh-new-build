@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Page, Product } from '../types';
 import { PRODUCTS } from '../data/salonData';
+import ProductDetailPage from '../components/ProductDetailPage';
 import { 
   ShoppingBag, Search, SlidersHorizontal, Star, Check, Plus, Minus,
   Trash2, ArrowRight, Eye, ShieldCheck, Truck, RotateCcw, X, Gift, Store
@@ -151,7 +152,21 @@ export default function ShopPage({ setCurrentPage, setPreselectedServiceId }: Sh
   return (
     <div className="max-w-7xl mx-auto px-6 md:px-12 py-12" id="shop-page-wrapper">
       
-      {/* Page Header */}
+      {selectedProduct ? (
+        <ProductDetailPage
+          product={selectedProduct}
+          onBack={() => {
+            setSelectedProduct(null);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          addToCart={addToCart}
+          onBookWithProduct={handleBookWithProduct}
+          allProducts={PRODUCTS}
+          setSelectedProduct={setSelectedProduct}
+        />
+      ) : (
+        <>
+          {/* Page Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div>
           <span className="text-[10px] font-extrabold uppercase text-salon-accent tracking-widest font-sans flex items-center gap-1.5">
@@ -301,7 +316,10 @@ export default function ShopPage({ setCurrentPage, setPreselectedServiceId }: Sh
               className="group bg-white border border-peach-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
             >
               {/* Product Image Holder */}
-              <div className="relative h-64 bg-peach-light/30 overflow-hidden border-b border-peach-light">
+              <div 
+                onClick={() => setSelectedProduct(product)}
+                className="relative h-64 bg-peach-light/30 overflow-hidden border-b border-peach-light cursor-pointer"
+              >
                 <img
                   src={product.imageUrl}
                   alt={product.name}
@@ -325,7 +343,10 @@ export default function ShopPage({ setCurrentPage, setPreselectedServiceId }: Sh
 
                 <div className="absolute bottom-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <button
-                    onClick={() => setSelectedProduct(product)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedProduct(product);
+                    }}
                     className="p-2.5 bg-white/95 backdrop-blur-sm hover:bg-salon-accent hover:text-white text-charcoal-deep rounded-full shadow-lg transition-all"
                     title="Quick View"
                   >
@@ -344,7 +365,10 @@ export default function ShopPage({ setCurrentPage, setPreselectedServiceId }: Sh
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-base text-charcoal-deep font-semibold mt-1.5 group-hover:text-salon-accent transition-colors line-clamp-1">
+                  <h3 
+                    onClick={() => setSelectedProduct(product)}
+                    className="font-serif text-base text-charcoal-deep font-semibold mt-1.5 hover:text-salon-accent transition-colors line-clamp-1 cursor-pointer"
+                  >
                     {product.name}
                   </h3>
 
@@ -386,122 +410,8 @@ export default function ShopPage({ setCurrentPage, setPreselectedServiceId }: Sh
         </div>
       )}
 
-      {/* Product Detail Modal */}
-      <AnimatePresence>
-        {selectedProduct && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-            {/* Overlay */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedProduct(null)}
-              className="absolute inset-0 bg-charcoal-deep/60 backdrop-blur-sm"
-            />
-            {/* Modal Content */}
-            <motion.div
-              initial={{ scale: 0.95, y: 15, opacity: 0 }}
-              animate={{ scale: 1, y: 0, opacity: 1 }}
-              exit={{ scale: 0.95, y: 15, opacity: 0 }}
-              className="relative w-full max-w-2xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-peach-dark/40 z-10 grid grid-cols-1 md:grid-cols-12 max-h-[90vh] overflow-y-auto"
-            >
-              {/* Product close */}
-              <button
-                onClick={() => setSelectedProduct(null)}
-                className="absolute top-4 right-4 z-20 p-2 bg-charcoal-deep text-white rounded-full hover:bg-salon-accent transition-colors shadow-md"
-              >
-                <X className="w-4 h-4" />
-              </button>
-
-              {/* Cover Image Left */}
-              <div className="md:col-span-5 h-64 md:h-full relative bg-peach-light/40">
-                <img
-                  src={selectedProduct.imageUrl}
-                  alt={selectedProduct.name}
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-                
-                {selectedProduct.isPopular && (
-                  <div className="absolute top-4 left-4 bg-charcoal-deep text-cream-soft text-[9px] uppercase tracking-widest font-extrabold px-3 py-1 rounded-full shadow">
-                    Popular Product
-                  </div>
-                )}
-              </div>
-
-              {/* Data Panel Right */}
-              <div className="md:col-span-7 p-6 md:p-8 flex flex-col justify-between">
-                <div>
-                  <span className="text-[9px] font-extrabold uppercase text-salon-accent tracking-widest font-sans">
-                    {selectedProduct.brand} • {selectedProduct.category}
-                  </span>
-                  <h2 className="font-serif text-2xl font-normal text-charcoal-deep mt-1 leading-tight">
-                    {selectedProduct.name}
-                  </h2>
-                  
-                  {/* Rating */}
-                  <div className="flex items-center gap-1.5 mt-2">
-                    <div className="flex text-amber-400">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                      ))}
-                    </div>
-                    <span className="text-xs text-charcoal-light font-sans font-medium">
-                      {selectedProduct.rating}.0 / 5.0 ({selectedProduct.reviewsCount} reviews)
-                    </span>
-                  </div>
-
-                  <p className="text-xs text-charcoal-light mt-4 leading-relaxed">
-                    {selectedProduct.description}
-                  </p>
-
-                  {/* Highlights */}
-                  <div className="bg-cream-soft/80 p-3.5 rounded-xl border border-peach-light/60 mt-4 text-[10px] space-y-1 text-charcoal-deep font-sans">
-                    <p>✨ <strong>Benefits:</strong> Protects hair cells, delivers instant reflective shine.</p>
-                    <p>🧪 <strong>Ingredients:</strong> Luxury botanical extracts, paraben-free, cruelty-free.</p>
-                    <p>🧼 <strong>Directions:</strong> Massage small drop into damp mid-lengths to lock moisture.</p>
-                  </div>
-
-                  {/* Pairing recommendation alert */}
-                  <div className="mt-4 p-3 rounded-xl border border-dashed border-salon-accent/30 bg-peach-light/30 flex items-center justify-between">
-                    <div>
-                      <span className="text-[8px] font-bold text-salon-accent uppercase tracking-wider block">Signature Pairing</span>
-                      <p className="text-[10px] text-charcoal-deep leading-tight mt-0.5">Book a matched treatment service to maximize results!</p>
-                    </div>
-                    <button
-                      onClick={() => handleBookWithProduct(selectedProduct)}
-                      className="px-3 py-1.5 bg-salon-accent/15 hover:bg-salon-accent text-salon-accent hover:text-white rounded-lg text-[9px] font-bold font-sans transition-all flex items-center gap-1"
-                    >
-                      Book Service <ArrowRight className="w-2.5 h-2.5" />
-                    </button>
-                  </div>
-                </div>
-
-                <div className="mt-8 pt-4 border-t border-peach-light flex items-center justify-between">
-                  <div>
-                    <span className="text-[9px] uppercase tracking-widest text-charcoal-light block">Boutique Price</span>
-                    <span className="font-mono text-lg font-extrabold text-charcoal-deep">
-                      {selectedProduct.priceLKR.toLocaleString()} LKR
-                    </span>
-                  </div>
-
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => {
-                        addToCart(selectedProduct);
-                        setSelectedProduct(null);
-                      }}
-                      className="px-5 py-2.5 bg-charcoal-deep text-cream-soft rounded-xl text-xs font-semibold hover:bg-salon-accent hover:text-white transition-all shadow"
-                    >
-                      Add To Shopping Bag
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+        </>
+      )}
 
       {/* Shopping Bag Drawer Overlay */}
       <AnimatePresence>
