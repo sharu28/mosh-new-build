@@ -235,7 +235,7 @@ export default function ProductDetailPage({
             )}
 
             {product.stock <= 8 && (
-              <div className="absolute top-4 right-4 bg-amber-500 text-white text-[9px] uppercase tracking-widest font-extrabold px-3 py-1 rounded-md shadow-md animate-pulse">
+              <div className="absolute top-4 right-4 bg-charcoal-deep text-white text-[9px] uppercase tracking-widest font-extrabold px-3 py-1 rounded-md shadow-md">
                 Low Stock • Only {product.stock} Left
               </div>
             )}
@@ -278,7 +278,7 @@ export default function ProductDetailPage({
               </span>
 
               <div className="flex items-center gap-1.5">
-                <div className="flex text-amber-400">
+                <div className="flex text-charcoal-deep">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4.5 h-4.5 fill-current" />
                   ))}
@@ -526,7 +526,7 @@ export default function ProductDetailPage({
               <div>
                 {/* Score rating in stars */}
                 <div className="flex items-center justify-between">
-                  <div className="flex text-amber-400">
+                  <div className="flex text-charcoal-deep">
                     {[...Array(rev.rating)].map((_, i) => (
                       <Star key={i} className="w-3.5 h-3.5 fill-current" />
                     ))}

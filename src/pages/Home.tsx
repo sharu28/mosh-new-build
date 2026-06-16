@@ -245,7 +245,7 @@ export default function Home({ setCurrentPage, setPreselectedServiceId }: HomePr
                           
                           {/* Rating score stars */}
                           <div className="flex items-center gap-1.5 mt-3">
-                            <div className="flex text-amber-400">
+                            <div className="flex text-charcoal-deep">
                               {[...Array(5)].map((_, i) => (
                                 <Star key={i} className="w-3 h-3 fill-current" />
                               ))}

@@ -11,10 +11,6 @@ interface HeroSectionProps {
 export default function HeroSection({ onBookAppointment, onExploreServices }: HeroSectionProps) {
   return (
     <section className="relative pt-12 pb-24 overflow-hidden ambient-peach-glow">
-      {/* Dynamic Background Glow Rings */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-salon-accent/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute -bottom-10 right-10 w-[300px] h-[300px] bg-amber-500/5 rounded-full blur-[80px] pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative flex flex-col items-center text-center">
         
         {/* Social Proof Badges with micro avatars */}
@@ -132,7 +128,7 @@ export default function HeroSection({ onBookAppointment, onExploreServices }: He
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-4 text-left">
-              <span className="text-[10px] uppercase tracking-wider text-salon-accent font-bold font-sans animate-pulse">Signature Style</span>
+              <span className="text-[10px] uppercase tracking-wider text-salon-accent font-bold font-sans">Signature Style</span>
               <p className="text-sm text-white font-serif italic">Mosh Honey Balayage</p>
             </div>
           </motion.div>

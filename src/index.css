@@ -1,20 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Playfair Display", Georgia, serif;
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
-  
-  --color-cream-soft: #FAF8F5;
-  --color-cream-white: #FCFBF9;
-  --color-peach-light: #FDF5ED;
-  --color-peach-dark: #F5EAE0;
-  
-  --color-salon-accent: #E65A1D; /* Clean premium warm orange from images */
-  --color-salon-accent-hover: #C94C15;
-  --color-charcoal-deep: #1A1A1A;
-  --color-charcoal-light: #4A4A4A;
+  /* MOSH brand: single Montserrat family across body, headings and labels —
+     mirrors the live mosh.lk Shopify "Horizon" theme. */
+  --font-serif: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+
+  /* Strict monochrome palette. Former cream/peach surfaces collapse to
+     white + hairline greys; the orange accent collapses to black. Token
+     names are kept so the ~1300 existing utility classes remap in place. */
+  --color-cream-soft: #FFFFFF;
+  --color-cream-white: #FAFAFA;
+  --color-peach-light: #F4F4F4;
+  --color-peach-dark: #E5E5E5;
+
+  --color-salon-accent: #000000;        /* buttons, active nav, icons */
+  --color-salon-accent-hover: #262626;
+  --color-charcoal-deep: #000000;       /* headings / pure black */
+  --color-charcoal-light: #595959;      /* muted body text (AA on white) */
 }
 
 /* Custom styles for luxury styling and layout elements */
@@ -26,16 +31,20 @@
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
+
+  /* Editorial heading treatment to echo the wide-tracked MOSH wordmark. */
+  h1, h2, h3 {
+    letter-spacing: -0.01em;
+  }
 }
 
-/* Smooth ambient background gradient mimicking the design inspiration */
+/* Flat, neutral ambient backgrounds (former warm radial glows). */
 .ambient-bg {
-  background: radial-gradient(circle at 50% -20%, #FFF3E6 0%, #FAF8F5 50%, #FCFBF9 100%);
+  background: #FFFFFF;
 }
 
 .ambient-peach-glow {
-  background: radial-gradient(circle at 100% 100%, #FDF4E9 0%, transparent 60%),
-              radial-gradient(circle at 0% 0%, #FFF0E0 0%, transparent 50%);
+  background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
 }
 
 /* Hide scrollbar utility */
@@ -46,4 +55,3 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-

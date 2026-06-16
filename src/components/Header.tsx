@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Page } from '../types';
-import { Scissors, Menu, X, Calendar, PhoneCall, ChevronDown, Activity, Heart, Eye } from 'lucide-react';
+import { Menu, X, Calendar, PhoneCall, ChevronDown, Activity, Heart, Eye } from 'lucide-react';
 
 interface HeaderProps {
   currentPage: Page;
@@ -51,23 +51,17 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 bg-cream-soft/90 backdrop-blur-md border-b border-peach-dark/40 py-4 px-6 md:px-12 transition-all duration-300">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Brand Logo in refined typography */}
-        <div 
-          id="brand-logo" 
+        {/* Brand Logo — official MOSH AESTHETICS wordmark */}
+        <div
+          id="brand-logo"
           onClick={() => handleNavClick('home')}
-          className="flex items-center gap-2 cursor-pointer group"
+          className="cursor-pointer group"
         >
-          <div className="p-2 bg-salon-accent/10 rounded-xl group-hover:bg-salon-accent/20 transition-all duration-300">
-            <Scissors className="w-5 h-5 text-salon-accent" />
-          </div>
-          <div>
-            <span className="font-serif text-2xl font-bold tracking-tight text-charcoal-deep group-hover:text-salon-accent transition-colors duration-300">
-              mosh<span className="text-salon-accent font-sans text-lg font-semibold">.lk</span>
-            </span>
-            <div className="text-[9px] uppercase tracking-widest text-salon-accent font-sans leading-none -mt-1 block">
-              HAIR ARTISTRY & SPA
-            </div>
-          </div>
+          <img
+            src="/mosh-logo.png"
+            alt="MOSH Aesthetics"
+            className="h-9 md:h-10 w-auto object-contain group-hover:opacity-70 transition-opacity duration-300"
+          />
         </div>
 
         {/* Desktop Navigation */}

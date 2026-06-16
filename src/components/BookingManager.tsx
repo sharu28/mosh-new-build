@@ -678,9 +678,9 @@ export default function BookingManager({
                   </div>
 
                   {/* Safety Alert Disclaimer */}
-                  <div className="flex gap-2.5 bg-amber-50 rounded-xl p-3 border border-amber-200/50 mt-1">
-                    <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                    <p className="text-[11px] text-amber-700 leading-tight font-sans">
+                  <div className="flex gap-2.5 bg-peach-light rounded-xl p-3 border border-peach-dark mt-1">
+                    <AlertCircle className="w-4 h-4 text-charcoal-deep shrink-0 mt-0.5" />
+                    <p className="text-[11px] text-charcoal-light leading-tight font-sans">
                       By scheduling, you agree to show up 10 minutes prior for scalp assessment. No prepayment required. Pay at salon room Colombo 07.
                     </p>
                   </div>

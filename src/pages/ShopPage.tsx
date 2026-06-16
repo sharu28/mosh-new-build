@@ -330,13 +330,13 @@ export default function ShopPage({ setCurrentPage, setPreselectedServiceId }: Sh
                 {/* Popularity Badge */}
                 {product.isPopular && (
                   <div className="absolute top-3 left-3 bg-charcoal-deep text-cream-soft text-[9px] uppercase tracking-widest font-extrabold px-2.5 py-1 rounded-full flex items-center gap-1 shadow">
-                    <Star className="w-2.5 h-2.5 text-salon-accent animate-pulse fill-salon-accent" /> Popular
+                    <Star className="w-2.5 h-2.5 text-salon-accent fill-salon-accent" /> Popular
                   </div>
                 )}
 
                 {/* Stock Warning */}
                 {product.stock <= 10 && (
-                  <div className="absolute top-3 right-3 bg-amber-500/90 backdrop-blur-sm text-white text-[8px] uppercase tracking-widest font-extrabold px-2 py-0.5 rounded-md">
+                  <div className="absolute top-3 right-3 bg-charcoal-deep/90 backdrop-blur-sm text-white text-[8px] uppercase tracking-widest font-extrabold px-2 py-0.5 rounded-md">
                     Only {product.stock} left
                   </div>
                 )}
@@ -378,7 +378,7 @@ export default function ShopPage({ setCurrentPage, setPreselectedServiceId }: Sh
 
                   {/* Rating Stars */}
                   <div className="flex items-center gap-1 mt-2.5">
-                    <div className="flex text-amber-400">
+                    <div className="flex text-charcoal-deep">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} className="w-3 h-3 fill-current" />
                       ))}

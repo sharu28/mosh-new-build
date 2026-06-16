@@ -23,7 +23,7 @@ export default function WeddingsPage({ setCurrentPage, setPreselectedServiceId }
       {/* 1. Header Portion */}
       <div className="text-center max-w-4xl mx-auto mb-16 text-center flex flex-col items-center">
         <span className="text-[10px] font-extrabold uppercase text-salon-accent tracking-widest font-sans bg-peach-light/50 px-4 py-1.5 rounded-full flex items-center gap-1.5 self-center">
-          <Crown className="w-3.5 h-3.5 text-salon-accent animate-pulse" /> Elite Colombo Nuptials
+          <Crown className="w-3.5 h-3.5 text-salon-accent" /> Elite Colombo Nuptials
         </span>
         <h1 className="font-serif text-4.5xl md:text-6xl font-normal text-charcoal-deep leading-tight mt-4">
           Timeless elegance styled <br />
@@ -184,7 +184,7 @@ export default function WeddingsPage({ setCurrentPage, setPreselectedServiceId }
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal-deep/80 via-transparent to-transparent flex items-end p-6 text-left">
                     <div>
-                      <span className="text-[9px] uppercase tracking-widest font-extrabold text-salon-accent block font-sans font-mono animate-pulse">Signature Groom Styling</span>
+                      <span className="text-[9px] uppercase tracking-widest font-extrabold text-salon-accent block font-sans font-mono">Signature Groom Styling</span>
                       <h4 className="font-serif text-lg text-white font-medium">Gentlemen Grooming Luxury Lounge</h4>
                     </div>
                   </div>
